@@ -32,6 +32,33 @@ type MissionServiceClient interface {
 	// Returns the mission's in-game current time as an ISO 8601 formatted
 	// datetime string.
 	GetScenarioCurrentTime(ctx context.Context, in *GetScenarioCurrentTimeRequest, opts ...grpc.CallOption) (*GetScenarioCurrentTimeResponse, error)
+	// Adds a new mission command
+	// See https://wiki.hoggitworld.com/view/DCS_func_addCommand
+	AddMissionCommand(ctx context.Context, in *AddMissionCommandRequest, opts ...grpc.CallOption) (*AddMissionCommandResponse, error)
+	// Adds a new command sub menu
+	// See https://wiki.hoggitworld.com/view/DCS_func_addSubMenu
+	AddMissionCommandSubMenu(ctx context.Context, in *AddMissionCommandSubMenuRequest, opts ...grpc.CallOption) (*AddMissionCommandSubMenuResponse, error)
+	// Removes a registered mission command.
+	// See https://wiki.hoggitworld.com/view/DCS_func_removeItem
+	RemoveMissionCommandItem(ctx context.Context, in *RemoveMissionCommandItemRequest, opts ...grpc.CallOption) (*RemoveMissionCommandItemResponse, error)
+	// Adds a new coalition command
+	// See https://wiki.hoggitworld.com/view/DCS_func_addCommandForCoalition
+	AddCoalitionCommand(ctx context.Context, in *AddCoalitionCommandRequest, opts ...grpc.CallOption) (*AddCoalitionCommandResponse, error)
+	// Adds a new coalition command sub menu
+	// See https://wiki.hoggitworld.com/view/DCS_func_addSubMenuForCoalition
+	AddCoalitionCommandSubMenu(ctx context.Context, in *AddCoalitionCommandSubMenuRequest, opts ...grpc.CallOption) (*AddCoalitionCommandSubMenuResponse, error)
+	// Removes a registered coalition command.
+	// See https://wiki.hoggitworld.com/view/DCS_func_removeItemForCoalition
+	RemoveCoalitionCommandItem(ctx context.Context, in *RemoveCoalitionCommandItemRequest, opts ...grpc.CallOption) (*RemoveCoalitionCommandItemResponse, error)
+	// Adds a new group command
+	// See https://wiki.hoggitworld.com/view/DCS_func_addCommandForGroup
+	AddGroupCommand(ctx context.Context, in *AddGroupCommandRequest, opts ...grpc.CallOption) (*AddGroupCommandResponse, error)
+	// Adds a new group command sub menu
+	// See https://wiki.hoggitworld.com/view/DCS_func_addSubMenuForGroup
+	AddGroupCommandSubMenu(ctx context.Context, in *AddGroupCommandSubMenuRequest, opts ...grpc.CallOption) (*AddGroupCommandSubMenuResponse, error)
+	// Removes a group coalition command.
+	// See https://wiki.hoggitworld.com/view/DCS_func_removeItemForGroup
+	RemoveGroupCommandItem(ctx context.Context, in *RemoveGroupCommandItemRequest, opts ...grpc.CallOption) (*RemoveGroupCommandItemResponse, error)
 }
 
 type missionServiceClient struct {
@@ -124,6 +151,87 @@ func (c *missionServiceClient) GetScenarioCurrentTime(ctx context.Context, in *G
 	return out, nil
 }
 
+func (c *missionServiceClient) AddMissionCommand(ctx context.Context, in *AddMissionCommandRequest, opts ...grpc.CallOption) (*AddMissionCommandResponse, error) {
+	out := new(AddMissionCommandResponse)
+	err := c.cc.Invoke(ctx, "/dcs.mission.v0.MissionService/AddMissionCommand", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *missionServiceClient) AddMissionCommandSubMenu(ctx context.Context, in *AddMissionCommandSubMenuRequest, opts ...grpc.CallOption) (*AddMissionCommandSubMenuResponse, error) {
+	out := new(AddMissionCommandSubMenuResponse)
+	err := c.cc.Invoke(ctx, "/dcs.mission.v0.MissionService/AddMissionCommandSubMenu", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *missionServiceClient) RemoveMissionCommandItem(ctx context.Context, in *RemoveMissionCommandItemRequest, opts ...grpc.CallOption) (*RemoveMissionCommandItemResponse, error) {
+	out := new(RemoveMissionCommandItemResponse)
+	err := c.cc.Invoke(ctx, "/dcs.mission.v0.MissionService/RemoveMissionCommandItem", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *missionServiceClient) AddCoalitionCommand(ctx context.Context, in *AddCoalitionCommandRequest, opts ...grpc.CallOption) (*AddCoalitionCommandResponse, error) {
+	out := new(AddCoalitionCommandResponse)
+	err := c.cc.Invoke(ctx, "/dcs.mission.v0.MissionService/AddCoalitionCommand", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *missionServiceClient) AddCoalitionCommandSubMenu(ctx context.Context, in *AddCoalitionCommandSubMenuRequest, opts ...grpc.CallOption) (*AddCoalitionCommandSubMenuResponse, error) {
+	out := new(AddCoalitionCommandSubMenuResponse)
+	err := c.cc.Invoke(ctx, "/dcs.mission.v0.MissionService/AddCoalitionCommandSubMenu", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *missionServiceClient) RemoveCoalitionCommandItem(ctx context.Context, in *RemoveCoalitionCommandItemRequest, opts ...grpc.CallOption) (*RemoveCoalitionCommandItemResponse, error) {
+	out := new(RemoveCoalitionCommandItemResponse)
+	err := c.cc.Invoke(ctx, "/dcs.mission.v0.MissionService/RemoveCoalitionCommandItem", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *missionServiceClient) AddGroupCommand(ctx context.Context, in *AddGroupCommandRequest, opts ...grpc.CallOption) (*AddGroupCommandResponse, error) {
+	out := new(AddGroupCommandResponse)
+	err := c.cc.Invoke(ctx, "/dcs.mission.v0.MissionService/AddGroupCommand", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *missionServiceClient) AddGroupCommandSubMenu(ctx context.Context, in *AddGroupCommandSubMenuRequest, opts ...grpc.CallOption) (*AddGroupCommandSubMenuResponse, error) {
+	out := new(AddGroupCommandSubMenuResponse)
+	err := c.cc.Invoke(ctx, "/dcs.mission.v0.MissionService/AddGroupCommandSubMenu", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *missionServiceClient) RemoveGroupCommandItem(ctx context.Context, in *RemoveGroupCommandItemRequest, opts ...grpc.CallOption) (*RemoveGroupCommandItemResponse, error) {
+	out := new(RemoveGroupCommandItemResponse)
+	err := c.cc.Invoke(ctx, "/dcs.mission.v0.MissionService/RemoveGroupCommandItem", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // MissionServiceServer is the server API for MissionService service.
 // All implementations must embed UnimplementedMissionServiceServer
 // for forward compatibility
@@ -142,6 +250,33 @@ type MissionServiceServer interface {
 	// Returns the mission's in-game current time as an ISO 8601 formatted
 	// datetime string.
 	GetScenarioCurrentTime(context.Context, *GetScenarioCurrentTimeRequest) (*GetScenarioCurrentTimeResponse, error)
+	// Adds a new mission command
+	// See https://wiki.hoggitworld.com/view/DCS_func_addCommand
+	AddMissionCommand(context.Context, *AddMissionCommandRequest) (*AddMissionCommandResponse, error)
+	// Adds a new command sub menu
+	// See https://wiki.hoggitworld.com/view/DCS_func_addSubMenu
+	AddMissionCommandSubMenu(context.Context, *AddMissionCommandSubMenuRequest) (*AddMissionCommandSubMenuResponse, error)
+	// Removes a registered mission command.
+	// See https://wiki.hoggitworld.com/view/DCS_func_removeItem
+	RemoveMissionCommandItem(context.Context, *RemoveMissionCommandItemRequest) (*RemoveMissionCommandItemResponse, error)
+	// Adds a new coalition command
+	// See https://wiki.hoggitworld.com/view/DCS_func_addCommandForCoalition
+	AddCoalitionCommand(context.Context, *AddCoalitionCommandRequest) (*AddCoalitionCommandResponse, error)
+	// Adds a new coalition command sub menu
+	// See https://wiki.hoggitworld.com/view/DCS_func_addSubMenuForCoalition
+	AddCoalitionCommandSubMenu(context.Context, *AddCoalitionCommandSubMenuRequest) (*AddCoalitionCommandSubMenuResponse, error)
+	// Removes a registered coalition command.
+	// See https://wiki.hoggitworld.com/view/DCS_func_removeItemForCoalition
+	RemoveCoalitionCommandItem(context.Context, *RemoveCoalitionCommandItemRequest) (*RemoveCoalitionCommandItemResponse, error)
+	// Adds a new group command
+	// See https://wiki.hoggitworld.com/view/DCS_func_addCommandForGroup
+	AddGroupCommand(context.Context, *AddGroupCommandRequest) (*AddGroupCommandResponse, error)
+	// Adds a new group command sub menu
+	// See https://wiki.hoggitworld.com/view/DCS_func_addSubMenuForGroup
+	AddGroupCommandSubMenu(context.Context, *AddGroupCommandSubMenuRequest) (*AddGroupCommandSubMenuResponse, error)
+	// Removes a group coalition command.
+	// See https://wiki.hoggitworld.com/view/DCS_func_removeItemForGroup
+	RemoveGroupCommandItem(context.Context, *RemoveGroupCommandItemRequest) (*RemoveGroupCommandItemResponse, error)
 	mustEmbedUnimplementedMissionServiceServer()
 }
 
@@ -160,6 +295,33 @@ func (UnimplementedMissionServiceServer) GetScenarioStartTime(context.Context, *
 }
 func (UnimplementedMissionServiceServer) GetScenarioCurrentTime(context.Context, *GetScenarioCurrentTimeRequest) (*GetScenarioCurrentTimeResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetScenarioCurrentTime not implemented")
+}
+func (UnimplementedMissionServiceServer) AddMissionCommand(context.Context, *AddMissionCommandRequest) (*AddMissionCommandResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method AddMissionCommand not implemented")
+}
+func (UnimplementedMissionServiceServer) AddMissionCommandSubMenu(context.Context, *AddMissionCommandSubMenuRequest) (*AddMissionCommandSubMenuResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method AddMissionCommandSubMenu not implemented")
+}
+func (UnimplementedMissionServiceServer) RemoveMissionCommandItem(context.Context, *RemoveMissionCommandItemRequest) (*RemoveMissionCommandItemResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method RemoveMissionCommandItem not implemented")
+}
+func (UnimplementedMissionServiceServer) AddCoalitionCommand(context.Context, *AddCoalitionCommandRequest) (*AddCoalitionCommandResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method AddCoalitionCommand not implemented")
+}
+func (UnimplementedMissionServiceServer) AddCoalitionCommandSubMenu(context.Context, *AddCoalitionCommandSubMenuRequest) (*AddCoalitionCommandSubMenuResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method AddCoalitionCommandSubMenu not implemented")
+}
+func (UnimplementedMissionServiceServer) RemoveCoalitionCommandItem(context.Context, *RemoveCoalitionCommandItemRequest) (*RemoveCoalitionCommandItemResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method RemoveCoalitionCommandItem not implemented")
+}
+func (UnimplementedMissionServiceServer) AddGroupCommand(context.Context, *AddGroupCommandRequest) (*AddGroupCommandResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method AddGroupCommand not implemented")
+}
+func (UnimplementedMissionServiceServer) AddGroupCommandSubMenu(context.Context, *AddGroupCommandSubMenuRequest) (*AddGroupCommandSubMenuResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method AddGroupCommandSubMenu not implemented")
+}
+func (UnimplementedMissionServiceServer) RemoveGroupCommandItem(context.Context, *RemoveGroupCommandItemRequest) (*RemoveGroupCommandItemResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method RemoveGroupCommandItem not implemented")
 }
 func (UnimplementedMissionServiceServer) mustEmbedUnimplementedMissionServiceServer() {}
 
@@ -252,6 +414,168 @@ func _MissionService_GetScenarioCurrentTime_Handler(srv interface{}, ctx context
 	return interceptor(ctx, in, info, handler)
 }
 
+func _MissionService_AddMissionCommand_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(AddMissionCommandRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(MissionServiceServer).AddMissionCommand(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/dcs.mission.v0.MissionService/AddMissionCommand",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(MissionServiceServer).AddMissionCommand(ctx, req.(*AddMissionCommandRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _MissionService_AddMissionCommandSubMenu_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(AddMissionCommandSubMenuRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(MissionServiceServer).AddMissionCommandSubMenu(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/dcs.mission.v0.MissionService/AddMissionCommandSubMenu",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(MissionServiceServer).AddMissionCommandSubMenu(ctx, req.(*AddMissionCommandSubMenuRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _MissionService_RemoveMissionCommandItem_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(RemoveMissionCommandItemRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(MissionServiceServer).RemoveMissionCommandItem(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/dcs.mission.v0.MissionService/RemoveMissionCommandItem",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(MissionServiceServer).RemoveMissionCommandItem(ctx, req.(*RemoveMissionCommandItemRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _MissionService_AddCoalitionCommand_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(AddCoalitionCommandRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(MissionServiceServer).AddCoalitionCommand(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/dcs.mission.v0.MissionService/AddCoalitionCommand",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(MissionServiceServer).AddCoalitionCommand(ctx, req.(*AddCoalitionCommandRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _MissionService_AddCoalitionCommandSubMenu_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(AddCoalitionCommandSubMenuRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(MissionServiceServer).AddCoalitionCommandSubMenu(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/dcs.mission.v0.MissionService/AddCoalitionCommandSubMenu",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(MissionServiceServer).AddCoalitionCommandSubMenu(ctx, req.(*AddCoalitionCommandSubMenuRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _MissionService_RemoveCoalitionCommandItem_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(RemoveCoalitionCommandItemRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(MissionServiceServer).RemoveCoalitionCommandItem(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/dcs.mission.v0.MissionService/RemoveCoalitionCommandItem",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(MissionServiceServer).RemoveCoalitionCommandItem(ctx, req.(*RemoveCoalitionCommandItemRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _MissionService_AddGroupCommand_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(AddGroupCommandRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(MissionServiceServer).AddGroupCommand(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/dcs.mission.v0.MissionService/AddGroupCommand",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(MissionServiceServer).AddGroupCommand(ctx, req.(*AddGroupCommandRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _MissionService_AddGroupCommandSubMenu_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(AddGroupCommandSubMenuRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(MissionServiceServer).AddGroupCommandSubMenu(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/dcs.mission.v0.MissionService/AddGroupCommandSubMenu",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(MissionServiceServer).AddGroupCommandSubMenu(ctx, req.(*AddGroupCommandSubMenuRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _MissionService_RemoveGroupCommandItem_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(RemoveGroupCommandItemRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(MissionServiceServer).RemoveGroupCommandItem(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/dcs.mission.v0.MissionService/RemoveGroupCommandItem",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(MissionServiceServer).RemoveGroupCommandItem(ctx, req.(*RemoveGroupCommandItemRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 // MissionService_ServiceDesc is the grpc.ServiceDesc for MissionService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -266,6 +590,42 @@ var MissionService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "GetScenarioCurrentTime",
 			Handler:    _MissionService_GetScenarioCurrentTime_Handler,
+		},
+		{
+			MethodName: "AddMissionCommand",
+			Handler:    _MissionService_AddMissionCommand_Handler,
+		},
+		{
+			MethodName: "AddMissionCommandSubMenu",
+			Handler:    _MissionService_AddMissionCommandSubMenu_Handler,
+		},
+		{
+			MethodName: "RemoveMissionCommandItem",
+			Handler:    _MissionService_RemoveMissionCommandItem_Handler,
+		},
+		{
+			MethodName: "AddCoalitionCommand",
+			Handler:    _MissionService_AddCoalitionCommand_Handler,
+		},
+		{
+			MethodName: "AddCoalitionCommandSubMenu",
+			Handler:    _MissionService_AddCoalitionCommandSubMenu_Handler,
+		},
+		{
+			MethodName: "RemoveCoalitionCommandItem",
+			Handler:    _MissionService_RemoveCoalitionCommandItem_Handler,
+		},
+		{
+			MethodName: "AddGroupCommand",
+			Handler:    _MissionService_AddGroupCommand_Handler,
+		},
+		{
+			MethodName: "AddGroupCommandSubMenu",
+			Handler:    _MissionService_AddGroupCommandSubMenu_Handler,
+		},
+		{
+			MethodName: "RemoveGroupCommandItem",
+			Handler:    _MissionService_RemoveGroupCommandItem_Handler,
 		},
 	},
 	Streams: []grpc.StreamDesc{

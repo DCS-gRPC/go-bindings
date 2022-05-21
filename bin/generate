@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
-rm -rf .build dcs/ && mkdir .build
+rm -rf .build && mkdir .build
 PROTOS=$(find rust-server/protos/ -name "*.proto" | grep -v "dcs/dcs.proto")
 protoc -Irust-server/protos/ $PROTOS --go_out=.build --go-grpc_out=.build
-mv .build/github.com/DCS-gRPC/go-bindings/dcs .
+rm -rf dcs/ && mv .build/github.com/DCS-gRPC/go-bindings/dcs .
 rm -rf .build

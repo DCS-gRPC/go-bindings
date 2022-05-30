@@ -34,6 +34,15 @@ type HookServiceClient interface {
 	SetPaused(ctx context.Context, in *SetPausedRequest, opts ...grpc.CallOption) (*SetPausedResponse, error)
 	// https://wiki.hoggitworld.com/view/DCS_func_stopMission
 	StopMission(ctx context.Context, in *StopMissionRequest, opts ...grpc.CallOption) (*StopMissionResponse, error)
+	// Reload the currently running mission
+	ReloadCurrentMission(ctx context.Context, in *ReloadCurrentMissionRequest, opts ...grpc.CallOption) (*ReloadCurrentMissionResponse, error)
+	// Load the next mission in the server mission list. Note that it does
+	// not loop back to the first mission once the end of the mission list
+	// has been reached
+	LoadNextMission(ctx context.Context, in *LoadNextMissionRequest, opts ...grpc.CallOption) (*LoadNextMissionResponse, error)
+	// Load a specific mission file. This does not need to be in the mission
+	// list.
+	LoadMission(ctx context.Context, in *LoadMissionRequest, opts ...grpc.CallOption) (*LoadMissionResponse, error)
 	// Evaluate some Lua inside of the hook environment and return the result as a
 	// JSON string. Disabled by default.
 	Eval(ctx context.Context, in *EvalRequest, opts ...grpc.CallOption) (*EvalResponse, error)
@@ -109,6 +118,33 @@ func (c *hookServiceClient) SetPaused(ctx context.Context, in *SetPausedRequest,
 func (c *hookServiceClient) StopMission(ctx context.Context, in *StopMissionRequest, opts ...grpc.CallOption) (*StopMissionResponse, error) {
 	out := new(StopMissionResponse)
 	err := c.cc.Invoke(ctx, "/dcs.hook.v0.HookService/StopMission", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *hookServiceClient) ReloadCurrentMission(ctx context.Context, in *ReloadCurrentMissionRequest, opts ...grpc.CallOption) (*ReloadCurrentMissionResponse, error) {
+	out := new(ReloadCurrentMissionResponse)
+	err := c.cc.Invoke(ctx, "/dcs.hook.v0.HookService/ReloadCurrentMission", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *hookServiceClient) LoadNextMission(ctx context.Context, in *LoadNextMissionRequest, opts ...grpc.CallOption) (*LoadNextMissionResponse, error) {
+	out := new(LoadNextMissionResponse)
+	err := c.cc.Invoke(ctx, "/dcs.hook.v0.HookService/LoadNextMission", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *hookServiceClient) LoadMission(ctx context.Context, in *LoadMissionRequest, opts ...grpc.CallOption) (*LoadMissionResponse, error) {
+	out := new(LoadMissionResponse)
+	err := c.cc.Invoke(ctx, "/dcs.hook.v0.HookService/LoadMission", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -203,6 +239,15 @@ type HookServiceServer interface {
 	SetPaused(context.Context, *SetPausedRequest) (*SetPausedResponse, error)
 	// https://wiki.hoggitworld.com/view/DCS_func_stopMission
 	StopMission(context.Context, *StopMissionRequest) (*StopMissionResponse, error)
+	// Reload the currently running mission
+	ReloadCurrentMission(context.Context, *ReloadCurrentMissionRequest) (*ReloadCurrentMissionResponse, error)
+	// Load the next mission in the server mission list. Note that it does
+	// not loop back to the first mission once the end of the mission list
+	// has been reached
+	LoadNextMission(context.Context, *LoadNextMissionRequest) (*LoadNextMissionResponse, error)
+	// Load a specific mission file. This does not need to be in the mission
+	// list.
+	LoadMission(context.Context, *LoadMissionRequest) (*LoadMissionResponse, error)
 	// Evaluate some Lua inside of the hook environment and return the result as a
 	// JSON string. Disabled by default.
 	Eval(context.Context, *EvalRequest) (*EvalResponse, error)
@@ -244,6 +289,15 @@ func (UnimplementedHookServiceServer) SetPaused(context.Context, *SetPausedReque
 }
 func (UnimplementedHookServiceServer) StopMission(context.Context, *StopMissionRequest) (*StopMissionResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method StopMission not implemented")
+}
+func (UnimplementedHookServiceServer) ReloadCurrentMission(context.Context, *ReloadCurrentMissionRequest) (*ReloadCurrentMissionResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method ReloadCurrentMission not implemented")
+}
+func (UnimplementedHookServiceServer) LoadNextMission(context.Context, *LoadNextMissionRequest) (*LoadNextMissionResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method LoadNextMission not implemented")
+}
+func (UnimplementedHookServiceServer) LoadMission(context.Context, *LoadMissionRequest) (*LoadMissionResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method LoadMission not implemented")
 }
 func (UnimplementedHookServiceServer) Eval(context.Context, *EvalRequest) (*EvalResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Eval not implemented")
@@ -386,6 +440,60 @@ func _HookService_StopMission_Handler(srv interface{}, ctx context.Context, dec 
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(HookServiceServer).StopMission(ctx, req.(*StopMissionRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _HookService_ReloadCurrentMission_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ReloadCurrentMissionRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(HookServiceServer).ReloadCurrentMission(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/dcs.hook.v0.HookService/ReloadCurrentMission",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(HookServiceServer).ReloadCurrentMission(ctx, req.(*ReloadCurrentMissionRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _HookService_LoadNextMission_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(LoadNextMissionRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(HookServiceServer).LoadNextMission(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/dcs.hook.v0.HookService/LoadNextMission",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(HookServiceServer).LoadNextMission(ctx, req.(*LoadNextMissionRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _HookService_LoadMission_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(LoadMissionRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(HookServiceServer).LoadMission(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/dcs.hook.v0.HookService/LoadMission",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(HookServiceServer).LoadMission(ctx, req.(*LoadMissionRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -564,6 +672,18 @@ var HookService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "StopMission",
 			Handler:    _HookService_StopMission_Handler,
+		},
+		{
+			MethodName: "ReloadCurrentMission",
+			Handler:    _HookService_ReloadCurrentMission_Handler,
+		},
+		{
+			MethodName: "LoadNextMission",
+			Handler:    _HookService_LoadNextMission_Handler,
+		},
+		{
+			MethodName: "LoadMission",
+			Handler:    _HookService_LoadMission_Handler,
 		},
 		{
 			MethodName: "Eval",

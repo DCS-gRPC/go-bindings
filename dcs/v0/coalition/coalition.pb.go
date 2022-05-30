@@ -361,6 +361,102 @@ func (x *AddGroupResponse) GetGroup() *common.Group {
 	return nil
 }
 
+type GetStaticObjectsRequest struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	// the coalition which the statics belong to
+	Coalition common.Coalition `protobuf:"varint,1,opt,name=coalition,proto3,enum=dcs.common.v0.Coalition" json:"coalition,omitempty"`
+}
+
+func (x *GetStaticObjectsRequest) Reset() {
+	*x = GetStaticObjectsRequest{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_dcs_coalition_v0_coalition_proto_msgTypes[2]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *GetStaticObjectsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetStaticObjectsRequest) ProtoMessage() {}
+
+func (x *GetStaticObjectsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_dcs_coalition_v0_coalition_proto_msgTypes[2]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetStaticObjectsRequest.ProtoReflect.Descriptor instead.
+func (*GetStaticObjectsRequest) Descriptor() ([]byte, []int) {
+	return file_dcs_coalition_v0_coalition_proto_rawDescGZIP(), []int{2}
+}
+
+func (x *GetStaticObjectsRequest) GetCoalition() common.Coalition {
+	if x != nil {
+		return x.Coalition
+	}
+	return common.Coalition(0)
+}
+
+type GetStaticObjectsResponse struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	// the list of statics
+	Statics []*common.Static `protobuf:"bytes,1,rep,name=statics,proto3" json:"statics,omitempty"`
+}
+
+func (x *GetStaticObjectsResponse) Reset() {
+	*x = GetStaticObjectsResponse{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_dcs_coalition_v0_coalition_proto_msgTypes[3]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *GetStaticObjectsResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetStaticObjectsResponse) ProtoMessage() {}
+
+func (x *GetStaticObjectsResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_dcs_coalition_v0_coalition_proto_msgTypes[3]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetStaticObjectsResponse.ProtoReflect.Descriptor instead.
+func (*GetStaticObjectsResponse) Descriptor() ([]byte, []int) {
+	return file_dcs_coalition_v0_coalition_proto_rawDescGZIP(), []int{3}
+}
+
+func (x *GetStaticObjectsResponse) GetStatics() []*common.Static {
+	if x != nil {
+		return x.Statics
+	}
+	return nil
+}
+
 type AddStaticObjectRequest struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
@@ -387,7 +483,7 @@ type AddStaticObjectRequest struct {
 func (x *AddStaticObjectRequest) Reset() {
 	*x = AddStaticObjectRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_dcs_coalition_v0_coalition_proto_msgTypes[2]
+		mi := &file_dcs_coalition_v0_coalition_proto_msgTypes[4]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -400,7 +496,7 @@ func (x *AddStaticObjectRequest) String() string {
 func (*AddStaticObjectRequest) ProtoMessage() {}
 
 func (x *AddStaticObjectRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_dcs_coalition_v0_coalition_proto_msgTypes[2]
+	mi := &file_dcs_coalition_v0_coalition_proto_msgTypes[4]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -413,7 +509,7 @@ func (x *AddStaticObjectRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use AddStaticObjectRequest.ProtoReflect.Descriptor instead.
 func (*AddStaticObjectRequest) Descriptor() ([]byte, []int) {
-	return file_dcs_coalition_v0_coalition_proto_rawDescGZIP(), []int{2}
+	return file_dcs_coalition_v0_coalition_proto_rawDescGZIP(), []int{4}
 }
 
 func (x *AddStaticObjectRequest) GetName() string {
@@ -490,7 +586,7 @@ type AddStaticObjectResponse struct {
 func (x *AddStaticObjectResponse) Reset() {
 	*x = AddStaticObjectResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_dcs_coalition_v0_coalition_proto_msgTypes[3]
+		mi := &file_dcs_coalition_v0_coalition_proto_msgTypes[5]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -503,7 +599,7 @@ func (x *AddStaticObjectResponse) String() string {
 func (*AddStaticObjectResponse) ProtoMessage() {}
 
 func (x *AddStaticObjectResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_dcs_coalition_v0_coalition_proto_msgTypes[3]
+	mi := &file_dcs_coalition_v0_coalition_proto_msgTypes[5]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -516,7 +612,7 @@ func (x *AddStaticObjectResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use AddStaticObjectResponse.ProtoReflect.Descriptor instead.
 func (*AddStaticObjectResponse) Descriptor() ([]byte, []int) {
-	return file_dcs_coalition_v0_coalition_proto_rawDescGZIP(), []int{3}
+	return file_dcs_coalition_v0_coalition_proto_rawDescGZIP(), []int{5}
 }
 
 func (x *AddStaticObjectResponse) GetName() string {
@@ -558,7 +654,7 @@ type AddLinkedStaticRequest struct {
 func (x *AddLinkedStaticRequest) Reset() {
 	*x = AddLinkedStaticRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_dcs_coalition_v0_coalition_proto_msgTypes[4]
+		mi := &file_dcs_coalition_v0_coalition_proto_msgTypes[6]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -571,7 +667,7 @@ func (x *AddLinkedStaticRequest) String() string {
 func (*AddLinkedStaticRequest) ProtoMessage() {}
 
 func (x *AddLinkedStaticRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_dcs_coalition_v0_coalition_proto_msgTypes[4]
+	mi := &file_dcs_coalition_v0_coalition_proto_msgTypes[6]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -584,7 +680,7 @@ func (x *AddLinkedStaticRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use AddLinkedStaticRequest.ProtoReflect.Descriptor instead.
 func (*AddLinkedStaticRequest) Descriptor() ([]byte, []int) {
-	return file_dcs_coalition_v0_coalition_proto_rawDescGZIP(), []int{4}
+	return file_dcs_coalition_v0_coalition_proto_rawDescGZIP(), []int{6}
 }
 
 func (x *AddLinkedStaticRequest) GetName() string {
@@ -668,7 +764,7 @@ type AddLinkedStaticResponse struct {
 func (x *AddLinkedStaticResponse) Reset() {
 	*x = AddLinkedStaticResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_dcs_coalition_v0_coalition_proto_msgTypes[5]
+		mi := &file_dcs_coalition_v0_coalition_proto_msgTypes[7]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -681,7 +777,7 @@ func (x *AddLinkedStaticResponse) String() string {
 func (*AddLinkedStaticResponse) ProtoMessage() {}
 
 func (x *AddLinkedStaticResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_dcs_coalition_v0_coalition_proto_msgTypes[5]
+	mi := &file_dcs_coalition_v0_coalition_proto_msgTypes[7]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -694,7 +790,7 @@ func (x *AddLinkedStaticResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use AddLinkedStaticResponse.ProtoReflect.Descriptor instead.
 func (*AddLinkedStaticResponse) Descriptor() ([]byte, []int) {
-	return file_dcs_coalition_v0_coalition_proto_rawDescGZIP(), []int{5}
+	return file_dcs_coalition_v0_coalition_proto_rawDescGZIP(), []int{7}
 }
 
 func (x *AddLinkedStaticResponse) GetName() string {
@@ -716,7 +812,7 @@ type GetGroupsRequest struct {
 func (x *GetGroupsRequest) Reset() {
 	*x = GetGroupsRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_dcs_coalition_v0_coalition_proto_msgTypes[6]
+		mi := &file_dcs_coalition_v0_coalition_proto_msgTypes[8]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -729,7 +825,7 @@ func (x *GetGroupsRequest) String() string {
 func (*GetGroupsRequest) ProtoMessage() {}
 
 func (x *GetGroupsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_dcs_coalition_v0_coalition_proto_msgTypes[6]
+	mi := &file_dcs_coalition_v0_coalition_proto_msgTypes[8]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -742,7 +838,7 @@ func (x *GetGroupsRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetGroupsRequest.ProtoReflect.Descriptor instead.
 func (*GetGroupsRequest) Descriptor() ([]byte, []int) {
-	return file_dcs_coalition_v0_coalition_proto_rawDescGZIP(), []int{6}
+	return file_dcs_coalition_v0_coalition_proto_rawDescGZIP(), []int{8}
 }
 
 func (x *GetGroupsRequest) GetCoalition() common.Coalition {
@@ -770,7 +866,7 @@ type GetGroupsResponse struct {
 func (x *GetGroupsResponse) Reset() {
 	*x = GetGroupsResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_dcs_coalition_v0_coalition_proto_msgTypes[7]
+		mi := &file_dcs_coalition_v0_coalition_proto_msgTypes[9]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -783,7 +879,7 @@ func (x *GetGroupsResponse) String() string {
 func (*GetGroupsResponse) ProtoMessage() {}
 
 func (x *GetGroupsResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_dcs_coalition_v0_coalition_proto_msgTypes[7]
+	mi := &file_dcs_coalition_v0_coalition_proto_msgTypes[9]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -796,7 +892,7 @@ func (x *GetGroupsResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetGroupsResponse.ProtoReflect.Descriptor instead.
 func (*GetGroupsResponse) Descriptor() ([]byte, []int) {
-	return file_dcs_coalition_v0_coalition_proto_rawDescGZIP(), []int{7}
+	return file_dcs_coalition_v0_coalition_proto_rawDescGZIP(), []int{9}
 }
 
 func (x *GetGroupsResponse) GetGroups() []*common.Group {
@@ -819,7 +915,7 @@ type GetBullseyeRequest struct {
 func (x *GetBullseyeRequest) Reset() {
 	*x = GetBullseyeRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_dcs_coalition_v0_coalition_proto_msgTypes[8]
+		mi := &file_dcs_coalition_v0_coalition_proto_msgTypes[10]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -832,7 +928,7 @@ func (x *GetBullseyeRequest) String() string {
 func (*GetBullseyeRequest) ProtoMessage() {}
 
 func (x *GetBullseyeRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_dcs_coalition_v0_coalition_proto_msgTypes[8]
+	mi := &file_dcs_coalition_v0_coalition_proto_msgTypes[10]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -845,7 +941,7 @@ func (x *GetBullseyeRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetBullseyeRequest.ProtoReflect.Descriptor instead.
 func (*GetBullseyeRequest) Descriptor() ([]byte, []int) {
-	return file_dcs_coalition_v0_coalition_proto_rawDescGZIP(), []int{8}
+	return file_dcs_coalition_v0_coalition_proto_rawDescGZIP(), []int{10}
 }
 
 func (x *GetBullseyeRequest) GetCoalition() common.Coalition {
@@ -866,7 +962,7 @@ type GetBullseyeResponse struct {
 func (x *GetBullseyeResponse) Reset() {
 	*x = GetBullseyeResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_dcs_coalition_v0_coalition_proto_msgTypes[9]
+		mi := &file_dcs_coalition_v0_coalition_proto_msgTypes[11]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -879,7 +975,7 @@ func (x *GetBullseyeResponse) String() string {
 func (*GetBullseyeResponse) ProtoMessage() {}
 
 func (x *GetBullseyeResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_dcs_coalition_v0_coalition_proto_msgTypes[9]
+	mi := &file_dcs_coalition_v0_coalition_proto_msgTypes[11]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -892,7 +988,7 @@ func (x *GetBullseyeResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetBullseyeResponse.ProtoReflect.Descriptor instead.
 func (*GetBullseyeResponse) Descriptor() ([]byte, []int) {
-	return file_dcs_coalition_v0_coalition_proto_rawDescGZIP(), []int{9}
+	return file_dcs_coalition_v0_coalition_proto_rawDescGZIP(), []int{11}
 }
 
 func (x *GetBullseyeResponse) GetPosition() *common.Position {
@@ -913,7 +1009,7 @@ type GetPlayerUnitsRequest struct {
 func (x *GetPlayerUnitsRequest) Reset() {
 	*x = GetPlayerUnitsRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_dcs_coalition_v0_coalition_proto_msgTypes[10]
+		mi := &file_dcs_coalition_v0_coalition_proto_msgTypes[12]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -926,7 +1022,7 @@ func (x *GetPlayerUnitsRequest) String() string {
 func (*GetPlayerUnitsRequest) ProtoMessage() {}
 
 func (x *GetPlayerUnitsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_dcs_coalition_v0_coalition_proto_msgTypes[10]
+	mi := &file_dcs_coalition_v0_coalition_proto_msgTypes[12]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -939,7 +1035,7 @@ func (x *GetPlayerUnitsRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetPlayerUnitsRequest.ProtoReflect.Descriptor instead.
 func (*GetPlayerUnitsRequest) Descriptor() ([]byte, []int) {
-	return file_dcs_coalition_v0_coalition_proto_rawDescGZIP(), []int{10}
+	return file_dcs_coalition_v0_coalition_proto_rawDescGZIP(), []int{12}
 }
 
 func (x *GetPlayerUnitsRequest) GetCoalition() common.Coalition {
@@ -960,7 +1056,7 @@ type GetPlayerUnitsResponse struct {
 func (x *GetPlayerUnitsResponse) Reset() {
 	*x = GetPlayerUnitsResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_dcs_coalition_v0_coalition_proto_msgTypes[11]
+		mi := &file_dcs_coalition_v0_coalition_proto_msgTypes[13]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -973,7 +1069,7 @@ func (x *GetPlayerUnitsResponse) String() string {
 func (*GetPlayerUnitsResponse) ProtoMessage() {}
 
 func (x *GetPlayerUnitsResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_dcs_coalition_v0_coalition_proto_msgTypes[11]
+	mi := &file_dcs_coalition_v0_coalition_proto_msgTypes[13]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -986,7 +1082,7 @@ func (x *GetPlayerUnitsResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetPlayerUnitsResponse.ProtoReflect.Descriptor instead.
 func (*GetPlayerUnitsResponse) Descriptor() ([]byte, []int) {
-	return file_dcs_coalition_v0_coalition_proto_rawDescGZIP(), []int{11}
+	return file_dcs_coalition_v0_coalition_proto_rawDescGZIP(), []int{13}
 }
 
 func (x *GetPlayerUnitsResponse) GetUnits() []*common.Unit {
@@ -1019,7 +1115,7 @@ type AddGroupRequest_GroundGroupTemplate struct {
 func (x *AddGroupRequest_GroundGroupTemplate) Reset() {
 	*x = AddGroupRequest_GroundGroupTemplate{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_dcs_coalition_v0_coalition_proto_msgTypes[12]
+		mi := &file_dcs_coalition_v0_coalition_proto_msgTypes[14]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -1032,7 +1128,7 @@ func (x *AddGroupRequest_GroundGroupTemplate) String() string {
 func (*AddGroupRequest_GroundGroupTemplate) ProtoMessage() {}
 
 func (x *AddGroupRequest_GroundGroupTemplate) ProtoReflect() protoreflect.Message {
-	mi := &file_dcs_coalition_v0_coalition_proto_msgTypes[12]
+	mi := &file_dcs_coalition_v0_coalition_proto_msgTypes[14]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1155,7 +1251,7 @@ type AddGroupRequest_GroundUnitTemplate struct {
 func (x *AddGroupRequest_GroundUnitTemplate) Reset() {
 	*x = AddGroupRequest_GroundUnitTemplate{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_dcs_coalition_v0_coalition_proto_msgTypes[13]
+		mi := &file_dcs_coalition_v0_coalition_proto_msgTypes[15]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -1168,7 +1264,7 @@ func (x *AddGroupRequest_GroundUnitTemplate) String() string {
 func (*AddGroupRequest_GroundUnitTemplate) ProtoMessage() {}
 
 func (x *AddGroupRequest_GroundUnitTemplate) ProtoReflect() protoreflect.Message {
-	mi := &file_dcs_coalition_v0_coalition_proto_msgTypes[13]
+	mi := &file_dcs_coalition_v0_coalition_proto_msgTypes[15]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1235,7 +1331,7 @@ type AddGroupRequest_ShipGroupTemplate struct {
 func (x *AddGroupRequest_ShipGroupTemplate) Reset() {
 	*x = AddGroupRequest_ShipGroupTemplate{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_dcs_coalition_v0_coalition_proto_msgTypes[14]
+		mi := &file_dcs_coalition_v0_coalition_proto_msgTypes[16]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -1248,7 +1344,7 @@ func (x *AddGroupRequest_ShipGroupTemplate) String() string {
 func (*AddGroupRequest_ShipGroupTemplate) ProtoMessage() {}
 
 func (x *AddGroupRequest_ShipGroupTemplate) ProtoReflect() protoreflect.Message {
-	mi := &file_dcs_coalition_v0_coalition_proto_msgTypes[14]
+	mi := &file_dcs_coalition_v0_coalition_proto_msgTypes[16]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1273,7 +1369,7 @@ type AddGroupRequest_ShipUnitTemplate struct {
 func (x *AddGroupRequest_ShipUnitTemplate) Reset() {
 	*x = AddGroupRequest_ShipUnitTemplate{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_dcs_coalition_v0_coalition_proto_msgTypes[15]
+		mi := &file_dcs_coalition_v0_coalition_proto_msgTypes[17]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -1286,7 +1382,7 @@ func (x *AddGroupRequest_ShipUnitTemplate) String() string {
 func (*AddGroupRequest_ShipUnitTemplate) ProtoMessage() {}
 
 func (x *AddGroupRequest_ShipUnitTemplate) ProtoReflect() protoreflect.Message {
-	mi := &file_dcs_coalition_v0_coalition_proto_msgTypes[15]
+	mi := &file_dcs_coalition_v0_coalition_proto_msgTypes[17]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1311,7 +1407,7 @@ type AddGroupRequest_HelicopterGroupTemplate struct {
 func (x *AddGroupRequest_HelicopterGroupTemplate) Reset() {
 	*x = AddGroupRequest_HelicopterGroupTemplate{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_dcs_coalition_v0_coalition_proto_msgTypes[16]
+		mi := &file_dcs_coalition_v0_coalition_proto_msgTypes[18]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -1324,7 +1420,7 @@ func (x *AddGroupRequest_HelicopterGroupTemplate) String() string {
 func (*AddGroupRequest_HelicopterGroupTemplate) ProtoMessage() {}
 
 func (x *AddGroupRequest_HelicopterGroupTemplate) ProtoReflect() protoreflect.Message {
-	mi := &file_dcs_coalition_v0_coalition_proto_msgTypes[16]
+	mi := &file_dcs_coalition_v0_coalition_proto_msgTypes[18]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1349,7 +1445,7 @@ type AddGroupRequest_HelicopterUnitTemplate struct {
 func (x *AddGroupRequest_HelicopterUnitTemplate) Reset() {
 	*x = AddGroupRequest_HelicopterUnitTemplate{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_dcs_coalition_v0_coalition_proto_msgTypes[17]
+		mi := &file_dcs_coalition_v0_coalition_proto_msgTypes[19]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -1362,7 +1458,7 @@ func (x *AddGroupRequest_HelicopterUnitTemplate) String() string {
 func (*AddGroupRequest_HelicopterUnitTemplate) ProtoMessage() {}
 
 func (x *AddGroupRequest_HelicopterUnitTemplate) ProtoReflect() protoreflect.Message {
-	mi := &file_dcs_coalition_v0_coalition_proto_msgTypes[17]
+	mi := &file_dcs_coalition_v0_coalition_proto_msgTypes[19]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1387,7 +1483,7 @@ type AddGroupRequest_PlaneGroupTemplate struct {
 func (x *AddGroupRequest_PlaneGroupTemplate) Reset() {
 	*x = AddGroupRequest_PlaneGroupTemplate{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_dcs_coalition_v0_coalition_proto_msgTypes[18]
+		mi := &file_dcs_coalition_v0_coalition_proto_msgTypes[20]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -1400,7 +1496,7 @@ func (x *AddGroupRequest_PlaneGroupTemplate) String() string {
 func (*AddGroupRequest_PlaneGroupTemplate) ProtoMessage() {}
 
 func (x *AddGroupRequest_PlaneGroupTemplate) ProtoReflect() protoreflect.Message {
-	mi := &file_dcs_coalition_v0_coalition_proto_msgTypes[18]
+	mi := &file_dcs_coalition_v0_coalition_proto_msgTypes[20]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1425,7 +1521,7 @@ type AddGroupRequest_PlaneUnitTemplate struct {
 func (x *AddGroupRequest_PlaneUnitTemplate) Reset() {
 	*x = AddGroupRequest_PlaneUnitTemplate{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_dcs_coalition_v0_coalition_proto_msgTypes[19]
+		mi := &file_dcs_coalition_v0_coalition_proto_msgTypes[21]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -1438,7 +1534,7 @@ func (x *AddGroupRequest_PlaneUnitTemplate) String() string {
 func (*AddGroupRequest_PlaneUnitTemplate) ProtoMessage() {}
 
 func (x *AddGroupRequest_PlaneUnitTemplate) ProtoReflect() protoreflect.Message {
-	mi := &file_dcs_coalition_v0_coalition_proto_msgTypes[19]
+	mi := &file_dcs_coalition_v0_coalition_proto_msgTypes[21]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1470,7 +1566,7 @@ type AddGroupRequest_Point struct {
 func (x *AddGroupRequest_Point) Reset() {
 	*x = AddGroupRequest_Point{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_dcs_coalition_v0_coalition_proto_msgTypes[20]
+		mi := &file_dcs_coalition_v0_coalition_proto_msgTypes[22]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -1483,7 +1579,7 @@ func (x *AddGroupRequest_Point) String() string {
 func (*AddGroupRequest_Point) ProtoMessage() {}
 
 func (x *AddGroupRequest_Point) ProtoReflect() protoreflect.Message {
-	mi := &file_dcs_coalition_v0_coalition_proto_msgTypes[20]
+	mi := &file_dcs_coalition_v0_coalition_proto_msgTypes[22]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1550,7 +1646,7 @@ type AddGroupRequest_Task struct {
 func (x *AddGroupRequest_Task) Reset() {
 	*x = AddGroupRequest_Task{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_dcs_coalition_v0_coalition_proto_msgTypes[21]
+		mi := &file_dcs_coalition_v0_coalition_proto_msgTypes[23]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -1563,7 +1659,7 @@ func (x *AddGroupRequest_Task) String() string {
 func (*AddGroupRequest_Task) ProtoMessage() {}
 
 func (x *AddGroupRequest_Task) ProtoReflect() protoreflect.Message {
-	mi := &file_dcs_coalition_v0_coalition_proto_msgTypes[21]
+	mi := &file_dcs_coalition_v0_coalition_proto_msgTypes[23]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1729,7 +1825,17 @@ var file_dcs_coalition_v0_coalition_proto_rawDesc = []byte{
 	0x6f, 0x75, 0x70, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x2a, 0x0a, 0x05, 0x67,
 	0x72, 0x6f, 0x75, 0x70, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x14, 0x2e, 0x64, 0x63, 0x73,
 	0x2e, 0x63, 0x6f, 0x6d, 0x6d, 0x6f, 0x6e, 0x2e, 0x76, 0x30, 0x2e, 0x47, 0x72, 0x6f, 0x75, 0x70,
-	0x52, 0x05, 0x67, 0x72, 0x6f, 0x75, 0x70, 0x22, 0xae, 0x02, 0x0a, 0x16, 0x41, 0x64, 0x64, 0x53,
+	0x52, 0x05, 0x67, 0x72, 0x6f, 0x75, 0x70, 0x22, 0x51, 0x0a, 0x17, 0x47, 0x65, 0x74, 0x53, 0x74,
+	0x61, 0x74, 0x69, 0x63, 0x4f, 0x62, 0x6a, 0x65, 0x63, 0x74, 0x73, 0x52, 0x65, 0x71, 0x75, 0x65,
+	0x73, 0x74, 0x12, 0x36, 0x0a, 0x09, 0x63, 0x6f, 0x61, 0x6c, 0x69, 0x74, 0x69, 0x6f, 0x6e, 0x18,
+	0x01, 0x20, 0x01, 0x28, 0x0e, 0x32, 0x18, 0x2e, 0x64, 0x63, 0x73, 0x2e, 0x63, 0x6f, 0x6d, 0x6d,
+	0x6f, 0x6e, 0x2e, 0x76, 0x30, 0x2e, 0x43, 0x6f, 0x61, 0x6c, 0x69, 0x74, 0x69, 0x6f, 0x6e, 0x52,
+	0x09, 0x63, 0x6f, 0x61, 0x6c, 0x69, 0x74, 0x69, 0x6f, 0x6e, 0x22, 0x4b, 0x0a, 0x18, 0x47, 0x65,
+	0x74, 0x53, 0x74, 0x61, 0x74, 0x69, 0x63, 0x4f, 0x62, 0x6a, 0x65, 0x63, 0x74, 0x73, 0x52, 0x65,
+	0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x2f, 0x0a, 0x07, 0x73, 0x74, 0x61, 0x74, 0x69, 0x63,
+	0x73, 0x18, 0x01, 0x20, 0x03, 0x28, 0x0b, 0x32, 0x15, 0x2e, 0x64, 0x63, 0x73, 0x2e, 0x63, 0x6f,
+	0x6d, 0x6d, 0x6f, 0x6e, 0x2e, 0x76, 0x30, 0x2e, 0x53, 0x74, 0x61, 0x74, 0x69, 0x63, 0x52, 0x07,
+	0x73, 0x74, 0x61, 0x74, 0x69, 0x63, 0x73, 0x22, 0xae, 0x02, 0x0a, 0x16, 0x41, 0x64, 0x64, 0x53,
 	0x74, 0x61, 0x74, 0x69, 0x63, 0x4f, 0x62, 0x6a, 0x65, 0x63, 0x74, 0x52, 0x65, 0x71, 0x75, 0x65,
 	0x73, 0x74, 0x12, 0x12, 0x0a, 0x04, 0x6e, 0x61, 0x6d, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09,
 	0x52, 0x04, 0x6e, 0x61, 0x6d, 0x65, 0x12, 0x30, 0x0a, 0x07, 0x63, 0x6f, 0x75, 0x6e, 0x74, 0x72,
@@ -1802,51 +1908,58 @@ var file_dcs_coalition_v0_coalition_proto_rawDesc = []byte{
 	0x72, 0x55, 0x6e, 0x69, 0x74, 0x73, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x29,
 	0x0a, 0x05, 0x75, 0x6e, 0x69, 0x74, 0x73, 0x18, 0x01, 0x20, 0x03, 0x28, 0x0b, 0x32, 0x13, 0x2e,
 	0x64, 0x63, 0x73, 0x2e, 0x63, 0x6f, 0x6d, 0x6d, 0x6f, 0x6e, 0x2e, 0x76, 0x30, 0x2e, 0x55, 0x6e,
-	0x69, 0x74, 0x52, 0x05, 0x75, 0x6e, 0x69, 0x74, 0x73, 0x32, 0xd8, 0x04, 0x0a, 0x10, 0x43, 0x6f,
+	0x69, 0x74, 0x52, 0x05, 0x75, 0x6e, 0x69, 0x74, 0x73, 0x32, 0xc5, 0x05, 0x0a, 0x10, 0x43, 0x6f,
 	0x61, 0x6c, 0x69, 0x74, 0x69, 0x6f, 0x6e, 0x53, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x12, 0x53,
 	0x0a, 0x08, 0x41, 0x64, 0x64, 0x47, 0x72, 0x6f, 0x75, 0x70, 0x12, 0x21, 0x2e, 0x64, 0x63, 0x73,
 	0x2e, 0x63, 0x6f, 0x61, 0x6c, 0x69, 0x74, 0x69, 0x6f, 0x6e, 0x2e, 0x76, 0x30, 0x2e, 0x41, 0x64,
 	0x64, 0x47, 0x72, 0x6f, 0x75, 0x70, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x22, 0x2e,
 	0x64, 0x63, 0x73, 0x2e, 0x63, 0x6f, 0x61, 0x6c, 0x69, 0x74, 0x69, 0x6f, 0x6e, 0x2e, 0x76, 0x30,
 	0x2e, 0x41, 0x64, 0x64, 0x47, 0x72, 0x6f, 0x75, 0x70, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73,
-	0x65, 0x22, 0x00, 0x12, 0x68, 0x0a, 0x0f, 0x41, 0x64, 0x64, 0x53, 0x74, 0x61, 0x74, 0x69, 0x63,
-	0x4f, 0x62, 0x6a, 0x65, 0x63, 0x74, 0x12, 0x28, 0x2e, 0x64, 0x63, 0x73, 0x2e, 0x63, 0x6f, 0x61,
-	0x6c, 0x69, 0x74, 0x69, 0x6f, 0x6e, 0x2e, 0x76, 0x30, 0x2e, 0x41, 0x64, 0x64, 0x53, 0x74, 0x61,
-	0x74, 0x69, 0x63, 0x4f, 0x62, 0x6a, 0x65, 0x63, 0x74, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74,
-	0x1a, 0x29, 0x2e, 0x64, 0x63, 0x73, 0x2e, 0x63, 0x6f, 0x61, 0x6c, 0x69, 0x74, 0x69, 0x6f, 0x6e,
-	0x2e, 0x76, 0x30, 0x2e, 0x41, 0x64, 0x64, 0x53, 0x74, 0x61, 0x74, 0x69, 0x63, 0x4f, 0x62, 0x6a,
-	0x65, 0x63, 0x74, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22, 0x00, 0x12, 0x68, 0x0a,
-	0x0f, 0x41, 0x64, 0x64, 0x4c, 0x69, 0x6e, 0x6b, 0x65, 0x64, 0x53, 0x74, 0x61, 0x74, 0x69, 0x63,
-	0x12, 0x28, 0x2e, 0x64, 0x63, 0x73, 0x2e, 0x63, 0x6f, 0x61, 0x6c, 0x69, 0x74, 0x69, 0x6f, 0x6e,
-	0x2e, 0x76, 0x30, 0x2e, 0x41, 0x64, 0x64, 0x4c, 0x69, 0x6e, 0x6b, 0x65, 0x64, 0x53, 0x74, 0x61,
-	0x74, 0x69, 0x63, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x29, 0x2e, 0x64, 0x63, 0x73,
-	0x2e, 0x63, 0x6f, 0x61, 0x6c, 0x69, 0x74, 0x69, 0x6f, 0x6e, 0x2e, 0x76, 0x30, 0x2e, 0x41, 0x64,
-	0x64, 0x4c, 0x69, 0x6e, 0x6b, 0x65, 0x64, 0x53, 0x74, 0x61, 0x74, 0x69, 0x63, 0x52, 0x65, 0x73,
-	0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22, 0x00, 0x12, 0x56, 0x0a, 0x09, 0x47, 0x65, 0x74, 0x47, 0x72,
-	0x6f, 0x75, 0x70, 0x73, 0x12, 0x22, 0x2e, 0x64, 0x63, 0x73, 0x2e, 0x63, 0x6f, 0x61, 0x6c, 0x69,
-	0x74, 0x69, 0x6f, 0x6e, 0x2e, 0x76, 0x30, 0x2e, 0x47, 0x65, 0x74, 0x47, 0x72, 0x6f, 0x75, 0x70,
-	0x73, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x23, 0x2e, 0x64, 0x63, 0x73, 0x2e, 0x63,
-	0x6f, 0x61, 0x6c, 0x69, 0x74, 0x69, 0x6f, 0x6e, 0x2e, 0x76, 0x30, 0x2e, 0x47, 0x65, 0x74, 0x47,
-	0x72, 0x6f, 0x75, 0x70, 0x73, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22, 0x00, 0x12,
-	0x5c, 0x0a, 0x0b, 0x47, 0x65, 0x74, 0x42, 0x75, 0x6c, 0x6c, 0x73, 0x65, 0x79, 0x65, 0x12, 0x24,
-	0x2e, 0x64, 0x63, 0x73, 0x2e, 0x63, 0x6f, 0x61, 0x6c, 0x69, 0x74, 0x69, 0x6f, 0x6e, 0x2e, 0x76,
-	0x30, 0x2e, 0x47, 0x65, 0x74, 0x42, 0x75, 0x6c, 0x6c, 0x73, 0x65, 0x79, 0x65, 0x52, 0x65, 0x71,
-	0x75, 0x65, 0x73, 0x74, 0x1a, 0x25, 0x2e, 0x64, 0x63, 0x73, 0x2e, 0x63, 0x6f, 0x61, 0x6c, 0x69,
-	0x74, 0x69, 0x6f, 0x6e, 0x2e, 0x76, 0x30, 0x2e, 0x47, 0x65, 0x74, 0x42, 0x75, 0x6c, 0x6c, 0x73,
-	0x65, 0x79, 0x65, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22, 0x00, 0x12, 0x65, 0x0a,
-	0x0e, 0x47, 0x65, 0x74, 0x50, 0x6c, 0x61, 0x79, 0x65, 0x72, 0x55, 0x6e, 0x69, 0x74, 0x73, 0x12,
-	0x27, 0x2e, 0x64, 0x63, 0x73, 0x2e, 0x63, 0x6f, 0x61, 0x6c, 0x69, 0x74, 0x69, 0x6f, 0x6e, 0x2e,
-	0x76, 0x30, 0x2e, 0x47, 0x65, 0x74, 0x50, 0x6c, 0x61, 0x79, 0x65, 0x72, 0x55, 0x6e, 0x69, 0x74,
-	0x73, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x28, 0x2e, 0x64, 0x63, 0x73, 0x2e, 0x63,
-	0x6f, 0x61, 0x6c, 0x69, 0x74, 0x69, 0x6f, 0x6e, 0x2e, 0x76, 0x30, 0x2e, 0x47, 0x65, 0x74, 0x50,
-	0x6c, 0x61, 0x79, 0x65, 0x72, 0x55, 0x6e, 0x69, 0x74, 0x73, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e,
-	0x73, 0x65, 0x22, 0x00, 0x42, 0x57, 0x5a, 0x30, 0x67, 0x69, 0x74, 0x68, 0x75, 0x62, 0x2e, 0x63,
-	0x6f, 0x6d, 0x2f, 0x44, 0x43, 0x53, 0x2d, 0x67, 0x52, 0x50, 0x43, 0x2f, 0x67, 0x6f, 0x2d, 0x62,
-	0x69, 0x6e, 0x64, 0x69, 0x6e, 0x67, 0x73, 0x2f, 0x64, 0x63, 0x73, 0x2f, 0x76, 0x30, 0x2f, 0x63,
-	0x6f, 0x61, 0x6c, 0x69, 0x74, 0x69, 0x6f, 0x6e, 0xaa, 0x02, 0x22, 0x52, 0x75, 0x72, 0x6f, 0x75,
-	0x6e, 0x69, 0x4a, 0x6f, 0x6e, 0x65, 0x73, 0x2e, 0x44, 0x63, 0x73, 0x2e, 0x47, 0x72, 0x70, 0x63,
-	0x2e, 0x56, 0x30, 0x2e, 0x43, 0x6f, 0x61, 0x6c, 0x69, 0x74, 0x69, 0x6f, 0x6e, 0x62, 0x06, 0x70,
-	0x72, 0x6f, 0x74, 0x6f, 0x33,
+	0x65, 0x22, 0x00, 0x12, 0x6b, 0x0a, 0x10, 0x47, 0x65, 0x74, 0x53, 0x74, 0x61, 0x74, 0x69, 0x63,
+	0x4f, 0x62, 0x6a, 0x65, 0x63, 0x74, 0x73, 0x12, 0x29, 0x2e, 0x64, 0x63, 0x73, 0x2e, 0x63, 0x6f,
+	0x61, 0x6c, 0x69, 0x74, 0x69, 0x6f, 0x6e, 0x2e, 0x76, 0x30, 0x2e, 0x47, 0x65, 0x74, 0x53, 0x74,
+	0x61, 0x74, 0x69, 0x63, 0x4f, 0x62, 0x6a, 0x65, 0x63, 0x74, 0x73, 0x52, 0x65, 0x71, 0x75, 0x65,
+	0x73, 0x74, 0x1a, 0x2a, 0x2e, 0x64, 0x63, 0x73, 0x2e, 0x63, 0x6f, 0x61, 0x6c, 0x69, 0x74, 0x69,
+	0x6f, 0x6e, 0x2e, 0x76, 0x30, 0x2e, 0x47, 0x65, 0x74, 0x53, 0x74, 0x61, 0x74, 0x69, 0x63, 0x4f,
+	0x62, 0x6a, 0x65, 0x63, 0x74, 0x73, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22, 0x00,
+	0x12, 0x68, 0x0a, 0x0f, 0x41, 0x64, 0x64, 0x53, 0x74, 0x61, 0x74, 0x69, 0x63, 0x4f, 0x62, 0x6a,
+	0x65, 0x63, 0x74, 0x12, 0x28, 0x2e, 0x64, 0x63, 0x73, 0x2e, 0x63, 0x6f, 0x61, 0x6c, 0x69, 0x74,
+	0x69, 0x6f, 0x6e, 0x2e, 0x76, 0x30, 0x2e, 0x41, 0x64, 0x64, 0x53, 0x74, 0x61, 0x74, 0x69, 0x63,
+	0x4f, 0x62, 0x6a, 0x65, 0x63, 0x74, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x29, 0x2e,
+	0x64, 0x63, 0x73, 0x2e, 0x63, 0x6f, 0x61, 0x6c, 0x69, 0x74, 0x69, 0x6f, 0x6e, 0x2e, 0x76, 0x30,
+	0x2e, 0x41, 0x64, 0x64, 0x53, 0x74, 0x61, 0x74, 0x69, 0x63, 0x4f, 0x62, 0x6a, 0x65, 0x63, 0x74,
+	0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22, 0x00, 0x12, 0x68, 0x0a, 0x0f, 0x41, 0x64,
+	0x64, 0x4c, 0x69, 0x6e, 0x6b, 0x65, 0x64, 0x53, 0x74, 0x61, 0x74, 0x69, 0x63, 0x12, 0x28, 0x2e,
+	0x64, 0x63, 0x73, 0x2e, 0x63, 0x6f, 0x61, 0x6c, 0x69, 0x74, 0x69, 0x6f, 0x6e, 0x2e, 0x76, 0x30,
+	0x2e, 0x41, 0x64, 0x64, 0x4c, 0x69, 0x6e, 0x6b, 0x65, 0x64, 0x53, 0x74, 0x61, 0x74, 0x69, 0x63,
+	0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x29, 0x2e, 0x64, 0x63, 0x73, 0x2e, 0x63, 0x6f,
+	0x61, 0x6c, 0x69, 0x74, 0x69, 0x6f, 0x6e, 0x2e, 0x76, 0x30, 0x2e, 0x41, 0x64, 0x64, 0x4c, 0x69,
+	0x6e, 0x6b, 0x65, 0x64, 0x53, 0x74, 0x61, 0x74, 0x69, 0x63, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e,
+	0x73, 0x65, 0x22, 0x00, 0x12, 0x56, 0x0a, 0x09, 0x47, 0x65, 0x74, 0x47, 0x72, 0x6f, 0x75, 0x70,
+	0x73, 0x12, 0x22, 0x2e, 0x64, 0x63, 0x73, 0x2e, 0x63, 0x6f, 0x61, 0x6c, 0x69, 0x74, 0x69, 0x6f,
+	0x6e, 0x2e, 0x76, 0x30, 0x2e, 0x47, 0x65, 0x74, 0x47, 0x72, 0x6f, 0x75, 0x70, 0x73, 0x52, 0x65,
+	0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x23, 0x2e, 0x64, 0x63, 0x73, 0x2e, 0x63, 0x6f, 0x61, 0x6c,
+	0x69, 0x74, 0x69, 0x6f, 0x6e, 0x2e, 0x76, 0x30, 0x2e, 0x47, 0x65, 0x74, 0x47, 0x72, 0x6f, 0x75,
+	0x70, 0x73, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22, 0x00, 0x12, 0x5c, 0x0a, 0x0b,
+	0x47, 0x65, 0x74, 0x42, 0x75, 0x6c, 0x6c, 0x73, 0x65, 0x79, 0x65, 0x12, 0x24, 0x2e, 0x64, 0x63,
+	0x73, 0x2e, 0x63, 0x6f, 0x61, 0x6c, 0x69, 0x74, 0x69, 0x6f, 0x6e, 0x2e, 0x76, 0x30, 0x2e, 0x47,
+	0x65, 0x74, 0x42, 0x75, 0x6c, 0x6c, 0x73, 0x65, 0x79, 0x65, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73,
+	0x74, 0x1a, 0x25, 0x2e, 0x64, 0x63, 0x73, 0x2e, 0x63, 0x6f, 0x61, 0x6c, 0x69, 0x74, 0x69, 0x6f,
+	0x6e, 0x2e, 0x76, 0x30, 0x2e, 0x47, 0x65, 0x74, 0x42, 0x75, 0x6c, 0x6c, 0x73, 0x65, 0x79, 0x65,
+	0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22, 0x00, 0x12, 0x65, 0x0a, 0x0e, 0x47, 0x65,
+	0x74, 0x50, 0x6c, 0x61, 0x79, 0x65, 0x72, 0x55, 0x6e, 0x69, 0x74, 0x73, 0x12, 0x27, 0x2e, 0x64,
+	0x63, 0x73, 0x2e, 0x63, 0x6f, 0x61, 0x6c, 0x69, 0x74, 0x69, 0x6f, 0x6e, 0x2e, 0x76, 0x30, 0x2e,
+	0x47, 0x65, 0x74, 0x50, 0x6c, 0x61, 0x79, 0x65, 0x72, 0x55, 0x6e, 0x69, 0x74, 0x73, 0x52, 0x65,
+	0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x28, 0x2e, 0x64, 0x63, 0x73, 0x2e, 0x63, 0x6f, 0x61, 0x6c,
+	0x69, 0x74, 0x69, 0x6f, 0x6e, 0x2e, 0x76, 0x30, 0x2e, 0x47, 0x65, 0x74, 0x50, 0x6c, 0x61, 0x79,
+	0x65, 0x72, 0x55, 0x6e, 0x69, 0x74, 0x73, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22,
+	0x00, 0x42, 0x57, 0x5a, 0x30, 0x67, 0x69, 0x74, 0x68, 0x75, 0x62, 0x2e, 0x63, 0x6f, 0x6d, 0x2f,
+	0x44, 0x43, 0x53, 0x2d, 0x67, 0x52, 0x50, 0x43, 0x2f, 0x67, 0x6f, 0x2d, 0x62, 0x69, 0x6e, 0x64,
+	0x69, 0x6e, 0x67, 0x73, 0x2f, 0x64, 0x63, 0x73, 0x2f, 0x76, 0x30, 0x2f, 0x63, 0x6f, 0x61, 0x6c,
+	0x69, 0x74, 0x69, 0x6f, 0x6e, 0xaa, 0x02, 0x22, 0x52, 0x75, 0x72, 0x6f, 0x75, 0x6e, 0x69, 0x4a,
+	0x6f, 0x6e, 0x65, 0x73, 0x2e, 0x44, 0x63, 0x73, 0x2e, 0x47, 0x72, 0x70, 0x63, 0x2e, 0x56, 0x30,
+	0x2e, 0x43, 0x6f, 0x61, 0x6c, 0x69, 0x74, 0x69, 0x6f, 0x6e, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74,
+	0x6f, 0x33,
 }
 
 var (
@@ -1862,84 +1975,91 @@ func file_dcs_coalition_v0_coalition_proto_rawDescGZIP() []byte {
 }
 
 var file_dcs_coalition_v0_coalition_proto_enumTypes = make([]protoimpl.EnumInfo, 3)
-var file_dcs_coalition_v0_coalition_proto_msgTypes = make([]protoimpl.MessageInfo, 22)
+var file_dcs_coalition_v0_coalition_proto_msgTypes = make([]protoimpl.MessageInfo, 24)
 var file_dcs_coalition_v0_coalition_proto_goTypes = []interface{}{
 	(AddGroupRequest_Skill)(0),                      // 0: dcs.coalition.v0.AddGroupRequest.Skill
 	(AddGroupRequest_Point_AltitudeType)(0),         // 1: dcs.coalition.v0.AddGroupRequest.Point.AltitudeType
 	(AddGroupRequest_Point_PointType)(0),            // 2: dcs.coalition.v0.AddGroupRequest.Point.PointType
 	(*AddGroupRequest)(nil),                         // 3: dcs.coalition.v0.AddGroupRequest
 	(*AddGroupResponse)(nil),                        // 4: dcs.coalition.v0.AddGroupResponse
-	(*AddStaticObjectRequest)(nil),                  // 5: dcs.coalition.v0.AddStaticObjectRequest
-	(*AddStaticObjectResponse)(nil),                 // 6: dcs.coalition.v0.AddStaticObjectResponse
-	(*AddLinkedStaticRequest)(nil),                  // 7: dcs.coalition.v0.AddLinkedStaticRequest
-	(*AddLinkedStaticResponse)(nil),                 // 8: dcs.coalition.v0.AddLinkedStaticResponse
-	(*GetGroupsRequest)(nil),                        // 9: dcs.coalition.v0.GetGroupsRequest
-	(*GetGroupsResponse)(nil),                       // 10: dcs.coalition.v0.GetGroupsResponse
-	(*GetBullseyeRequest)(nil),                      // 11: dcs.coalition.v0.GetBullseyeRequest
-	(*GetBullseyeResponse)(nil),                     // 12: dcs.coalition.v0.GetBullseyeResponse
-	(*GetPlayerUnitsRequest)(nil),                   // 13: dcs.coalition.v0.GetPlayerUnitsRequest
-	(*GetPlayerUnitsResponse)(nil),                  // 14: dcs.coalition.v0.GetPlayerUnitsResponse
-	(*AddGroupRequest_GroundGroupTemplate)(nil),     // 15: dcs.coalition.v0.AddGroupRequest.GroundGroupTemplate
-	(*AddGroupRequest_GroundUnitTemplate)(nil),      // 16: dcs.coalition.v0.AddGroupRequest.GroundUnitTemplate
-	(*AddGroupRequest_ShipGroupTemplate)(nil),       // 17: dcs.coalition.v0.AddGroupRequest.ShipGroupTemplate
-	(*AddGroupRequest_ShipUnitTemplate)(nil),        // 18: dcs.coalition.v0.AddGroupRequest.ShipUnitTemplate
-	(*AddGroupRequest_HelicopterGroupTemplate)(nil), // 19: dcs.coalition.v0.AddGroupRequest.HelicopterGroupTemplate
-	(*AddGroupRequest_HelicopterUnitTemplate)(nil),  // 20: dcs.coalition.v0.AddGroupRequest.HelicopterUnitTemplate
-	(*AddGroupRequest_PlaneGroupTemplate)(nil),      // 21: dcs.coalition.v0.AddGroupRequest.PlaneGroupTemplate
-	(*AddGroupRequest_PlaneUnitTemplate)(nil),       // 22: dcs.coalition.v0.AddGroupRequest.PlaneUnitTemplate
-	(*AddGroupRequest_Point)(nil),                   // 23: dcs.coalition.v0.AddGroupRequest.Point
-	(*AddGroupRequest_Task)(nil),                    // 24: dcs.coalition.v0.AddGroupRequest.Task
-	(common.Country)(0),                             // 25: dcs.common.v0.Country
-	(common.GroupCategory)(0),                       // 26: dcs.common.v0.GroupCategory
-	(*common.Group)(nil),                            // 27: dcs.common.v0.Group
-	(*common.Position)(nil),                         // 28: dcs.common.v0.Position
-	(common.Coalition)(0),                           // 29: dcs.common.v0.Coalition
-	(*common.Unit)(nil),                             // 30: dcs.common.v0.Unit
+	(*GetStaticObjectsRequest)(nil),                 // 5: dcs.coalition.v0.GetStaticObjectsRequest
+	(*GetStaticObjectsResponse)(nil),                // 6: dcs.coalition.v0.GetStaticObjectsResponse
+	(*AddStaticObjectRequest)(nil),                  // 7: dcs.coalition.v0.AddStaticObjectRequest
+	(*AddStaticObjectResponse)(nil),                 // 8: dcs.coalition.v0.AddStaticObjectResponse
+	(*AddLinkedStaticRequest)(nil),                  // 9: dcs.coalition.v0.AddLinkedStaticRequest
+	(*AddLinkedStaticResponse)(nil),                 // 10: dcs.coalition.v0.AddLinkedStaticResponse
+	(*GetGroupsRequest)(nil),                        // 11: dcs.coalition.v0.GetGroupsRequest
+	(*GetGroupsResponse)(nil),                       // 12: dcs.coalition.v0.GetGroupsResponse
+	(*GetBullseyeRequest)(nil),                      // 13: dcs.coalition.v0.GetBullseyeRequest
+	(*GetBullseyeResponse)(nil),                     // 14: dcs.coalition.v0.GetBullseyeResponse
+	(*GetPlayerUnitsRequest)(nil),                   // 15: dcs.coalition.v0.GetPlayerUnitsRequest
+	(*GetPlayerUnitsResponse)(nil),                  // 16: dcs.coalition.v0.GetPlayerUnitsResponse
+	(*AddGroupRequest_GroundGroupTemplate)(nil),     // 17: dcs.coalition.v0.AddGroupRequest.GroundGroupTemplate
+	(*AddGroupRequest_GroundUnitTemplate)(nil),      // 18: dcs.coalition.v0.AddGroupRequest.GroundUnitTemplate
+	(*AddGroupRequest_ShipGroupTemplate)(nil),       // 19: dcs.coalition.v0.AddGroupRequest.ShipGroupTemplate
+	(*AddGroupRequest_ShipUnitTemplate)(nil),        // 20: dcs.coalition.v0.AddGroupRequest.ShipUnitTemplate
+	(*AddGroupRequest_HelicopterGroupTemplate)(nil), // 21: dcs.coalition.v0.AddGroupRequest.HelicopterGroupTemplate
+	(*AddGroupRequest_HelicopterUnitTemplate)(nil),  // 22: dcs.coalition.v0.AddGroupRequest.HelicopterUnitTemplate
+	(*AddGroupRequest_PlaneGroupTemplate)(nil),      // 23: dcs.coalition.v0.AddGroupRequest.PlaneGroupTemplate
+	(*AddGroupRequest_PlaneUnitTemplate)(nil),       // 24: dcs.coalition.v0.AddGroupRequest.PlaneUnitTemplate
+	(*AddGroupRequest_Point)(nil),                   // 25: dcs.coalition.v0.AddGroupRequest.Point
+	(*AddGroupRequest_Task)(nil),                    // 26: dcs.coalition.v0.AddGroupRequest.Task
+	(common.Country)(0),                             // 27: dcs.common.v0.Country
+	(common.GroupCategory)(0),                       // 28: dcs.common.v0.GroupCategory
+	(*common.Group)(nil),                            // 29: dcs.common.v0.Group
+	(common.Coalition)(0),                           // 30: dcs.common.v0.Coalition
+	(*common.Static)(nil),                           // 31: dcs.common.v0.Static
+	(*common.Position)(nil),                         // 32: dcs.common.v0.Position
+	(*common.Unit)(nil),                             // 33: dcs.common.v0.Unit
 }
 var file_dcs_coalition_v0_coalition_proto_depIdxs = []int32{
-	25, // 0: dcs.coalition.v0.AddGroupRequest.country:type_name -> dcs.common.v0.Country
-	26, // 1: dcs.coalition.v0.AddGroupRequest.group_category:type_name -> dcs.common.v0.GroupCategory
-	15, // 2: dcs.coalition.v0.AddGroupRequest.ground_template:type_name -> dcs.coalition.v0.AddGroupRequest.GroundGroupTemplate
-	17, // 3: dcs.coalition.v0.AddGroupRequest.ship_template:type_name -> dcs.coalition.v0.AddGroupRequest.ShipGroupTemplate
-	19, // 4: dcs.coalition.v0.AddGroupRequest.helicopter_template:type_name -> dcs.coalition.v0.AddGroupRequest.HelicopterGroupTemplate
-	21, // 5: dcs.coalition.v0.AddGroupRequest.plane_template:type_name -> dcs.coalition.v0.AddGroupRequest.PlaneGroupTemplate
-	27, // 6: dcs.coalition.v0.AddGroupResponse.group:type_name -> dcs.common.v0.Group
-	25, // 7: dcs.coalition.v0.AddStaticObjectRequest.country:type_name -> dcs.common.v0.Country
-	28, // 8: dcs.coalition.v0.AddStaticObjectRequest.position:type_name -> dcs.common.v0.Position
-	25, // 9: dcs.coalition.v0.AddLinkedStaticRequest.country:type_name -> dcs.common.v0.Country
-	29, // 10: dcs.coalition.v0.GetGroupsRequest.coalition:type_name -> dcs.common.v0.Coalition
-	26, // 11: dcs.coalition.v0.GetGroupsRequest.category:type_name -> dcs.common.v0.GroupCategory
-	27, // 12: dcs.coalition.v0.GetGroupsResponse.groups:type_name -> dcs.common.v0.Group
-	29, // 13: dcs.coalition.v0.GetBullseyeRequest.coalition:type_name -> dcs.common.v0.Coalition
-	28, // 14: dcs.coalition.v0.GetBullseyeResponse.position:type_name -> dcs.common.v0.Position
-	29, // 15: dcs.coalition.v0.GetPlayerUnitsRequest.coalition:type_name -> dcs.common.v0.Coalition
-	30, // 16: dcs.coalition.v0.GetPlayerUnitsResponse.units:type_name -> dcs.common.v0.Unit
-	28, // 17: dcs.coalition.v0.AddGroupRequest.GroundGroupTemplate.position:type_name -> dcs.common.v0.Position
-	23, // 18: dcs.coalition.v0.AddGroupRequest.GroundGroupTemplate.waypoints:type_name -> dcs.coalition.v0.AddGroupRequest.Point
-	24, // 19: dcs.coalition.v0.AddGroupRequest.GroundGroupTemplate.tasks:type_name -> dcs.coalition.v0.AddGroupRequest.Task
-	16, // 20: dcs.coalition.v0.AddGroupRequest.GroundGroupTemplate.units:type_name -> dcs.coalition.v0.AddGroupRequest.GroundUnitTemplate
-	28, // 21: dcs.coalition.v0.AddGroupRequest.GroundUnitTemplate.position:type_name -> dcs.common.v0.Position
-	0,  // 22: dcs.coalition.v0.AddGroupRequest.GroundUnitTemplate.skill:type_name -> dcs.coalition.v0.AddGroupRequest.Skill
-	28, // 23: dcs.coalition.v0.AddGroupRequest.Point.position:type_name -> dcs.common.v0.Position
-	1,  // 24: dcs.coalition.v0.AddGroupRequest.Point.altitude_type:type_name -> dcs.coalition.v0.AddGroupRequest.Point.AltitudeType
-	2,  // 25: dcs.coalition.v0.AddGroupRequest.Point.type:type_name -> dcs.coalition.v0.AddGroupRequest.Point.PointType
-	3,  // 26: dcs.coalition.v0.CoalitionService.AddGroup:input_type -> dcs.coalition.v0.AddGroupRequest
-	5,  // 27: dcs.coalition.v0.CoalitionService.AddStaticObject:input_type -> dcs.coalition.v0.AddStaticObjectRequest
-	7,  // 28: dcs.coalition.v0.CoalitionService.AddLinkedStatic:input_type -> dcs.coalition.v0.AddLinkedStaticRequest
-	9,  // 29: dcs.coalition.v0.CoalitionService.GetGroups:input_type -> dcs.coalition.v0.GetGroupsRequest
-	11, // 30: dcs.coalition.v0.CoalitionService.GetBullseye:input_type -> dcs.coalition.v0.GetBullseyeRequest
-	13, // 31: dcs.coalition.v0.CoalitionService.GetPlayerUnits:input_type -> dcs.coalition.v0.GetPlayerUnitsRequest
-	4,  // 32: dcs.coalition.v0.CoalitionService.AddGroup:output_type -> dcs.coalition.v0.AddGroupResponse
-	6,  // 33: dcs.coalition.v0.CoalitionService.AddStaticObject:output_type -> dcs.coalition.v0.AddStaticObjectResponse
-	8,  // 34: dcs.coalition.v0.CoalitionService.AddLinkedStatic:output_type -> dcs.coalition.v0.AddLinkedStaticResponse
-	10, // 35: dcs.coalition.v0.CoalitionService.GetGroups:output_type -> dcs.coalition.v0.GetGroupsResponse
-	12, // 36: dcs.coalition.v0.CoalitionService.GetBullseye:output_type -> dcs.coalition.v0.GetBullseyeResponse
-	14, // 37: dcs.coalition.v0.CoalitionService.GetPlayerUnits:output_type -> dcs.coalition.v0.GetPlayerUnitsResponse
-	32, // [32:38] is the sub-list for method output_type
-	26, // [26:32] is the sub-list for method input_type
-	26, // [26:26] is the sub-list for extension type_name
-	26, // [26:26] is the sub-list for extension extendee
-	0,  // [0:26] is the sub-list for field type_name
+	27, // 0: dcs.coalition.v0.AddGroupRequest.country:type_name -> dcs.common.v0.Country
+	28, // 1: dcs.coalition.v0.AddGroupRequest.group_category:type_name -> dcs.common.v0.GroupCategory
+	17, // 2: dcs.coalition.v0.AddGroupRequest.ground_template:type_name -> dcs.coalition.v0.AddGroupRequest.GroundGroupTemplate
+	19, // 3: dcs.coalition.v0.AddGroupRequest.ship_template:type_name -> dcs.coalition.v0.AddGroupRequest.ShipGroupTemplate
+	21, // 4: dcs.coalition.v0.AddGroupRequest.helicopter_template:type_name -> dcs.coalition.v0.AddGroupRequest.HelicopterGroupTemplate
+	23, // 5: dcs.coalition.v0.AddGroupRequest.plane_template:type_name -> dcs.coalition.v0.AddGroupRequest.PlaneGroupTemplate
+	29, // 6: dcs.coalition.v0.AddGroupResponse.group:type_name -> dcs.common.v0.Group
+	30, // 7: dcs.coalition.v0.GetStaticObjectsRequest.coalition:type_name -> dcs.common.v0.Coalition
+	31, // 8: dcs.coalition.v0.GetStaticObjectsResponse.statics:type_name -> dcs.common.v0.Static
+	27, // 9: dcs.coalition.v0.AddStaticObjectRequest.country:type_name -> dcs.common.v0.Country
+	32, // 10: dcs.coalition.v0.AddStaticObjectRequest.position:type_name -> dcs.common.v0.Position
+	27, // 11: dcs.coalition.v0.AddLinkedStaticRequest.country:type_name -> dcs.common.v0.Country
+	30, // 12: dcs.coalition.v0.GetGroupsRequest.coalition:type_name -> dcs.common.v0.Coalition
+	28, // 13: dcs.coalition.v0.GetGroupsRequest.category:type_name -> dcs.common.v0.GroupCategory
+	29, // 14: dcs.coalition.v0.GetGroupsResponse.groups:type_name -> dcs.common.v0.Group
+	30, // 15: dcs.coalition.v0.GetBullseyeRequest.coalition:type_name -> dcs.common.v0.Coalition
+	32, // 16: dcs.coalition.v0.GetBullseyeResponse.position:type_name -> dcs.common.v0.Position
+	30, // 17: dcs.coalition.v0.GetPlayerUnitsRequest.coalition:type_name -> dcs.common.v0.Coalition
+	33, // 18: dcs.coalition.v0.GetPlayerUnitsResponse.units:type_name -> dcs.common.v0.Unit
+	32, // 19: dcs.coalition.v0.AddGroupRequest.GroundGroupTemplate.position:type_name -> dcs.common.v0.Position
+	25, // 20: dcs.coalition.v0.AddGroupRequest.GroundGroupTemplate.waypoints:type_name -> dcs.coalition.v0.AddGroupRequest.Point
+	26, // 21: dcs.coalition.v0.AddGroupRequest.GroundGroupTemplate.tasks:type_name -> dcs.coalition.v0.AddGroupRequest.Task
+	18, // 22: dcs.coalition.v0.AddGroupRequest.GroundGroupTemplate.units:type_name -> dcs.coalition.v0.AddGroupRequest.GroundUnitTemplate
+	32, // 23: dcs.coalition.v0.AddGroupRequest.GroundUnitTemplate.position:type_name -> dcs.common.v0.Position
+	0,  // 24: dcs.coalition.v0.AddGroupRequest.GroundUnitTemplate.skill:type_name -> dcs.coalition.v0.AddGroupRequest.Skill
+	32, // 25: dcs.coalition.v0.AddGroupRequest.Point.position:type_name -> dcs.common.v0.Position
+	1,  // 26: dcs.coalition.v0.AddGroupRequest.Point.altitude_type:type_name -> dcs.coalition.v0.AddGroupRequest.Point.AltitudeType
+	2,  // 27: dcs.coalition.v0.AddGroupRequest.Point.type:type_name -> dcs.coalition.v0.AddGroupRequest.Point.PointType
+	3,  // 28: dcs.coalition.v0.CoalitionService.AddGroup:input_type -> dcs.coalition.v0.AddGroupRequest
+	5,  // 29: dcs.coalition.v0.CoalitionService.GetStaticObjects:input_type -> dcs.coalition.v0.GetStaticObjectsRequest
+	7,  // 30: dcs.coalition.v0.CoalitionService.AddStaticObject:input_type -> dcs.coalition.v0.AddStaticObjectRequest
+	9,  // 31: dcs.coalition.v0.CoalitionService.AddLinkedStatic:input_type -> dcs.coalition.v0.AddLinkedStaticRequest
+	11, // 32: dcs.coalition.v0.CoalitionService.GetGroups:input_type -> dcs.coalition.v0.GetGroupsRequest
+	13, // 33: dcs.coalition.v0.CoalitionService.GetBullseye:input_type -> dcs.coalition.v0.GetBullseyeRequest
+	15, // 34: dcs.coalition.v0.CoalitionService.GetPlayerUnits:input_type -> dcs.coalition.v0.GetPlayerUnitsRequest
+	4,  // 35: dcs.coalition.v0.CoalitionService.AddGroup:output_type -> dcs.coalition.v0.AddGroupResponse
+	6,  // 36: dcs.coalition.v0.CoalitionService.GetStaticObjects:output_type -> dcs.coalition.v0.GetStaticObjectsResponse
+	8,  // 37: dcs.coalition.v0.CoalitionService.AddStaticObject:output_type -> dcs.coalition.v0.AddStaticObjectResponse
+	10, // 38: dcs.coalition.v0.CoalitionService.AddLinkedStatic:output_type -> dcs.coalition.v0.AddLinkedStaticResponse
+	12, // 39: dcs.coalition.v0.CoalitionService.GetGroups:output_type -> dcs.coalition.v0.GetGroupsResponse
+	14, // 40: dcs.coalition.v0.CoalitionService.GetBullseye:output_type -> dcs.coalition.v0.GetBullseyeResponse
+	16, // 41: dcs.coalition.v0.CoalitionService.GetPlayerUnits:output_type -> dcs.coalition.v0.GetPlayerUnitsResponse
+	35, // [35:42] is the sub-list for method output_type
+	28, // [28:35] is the sub-list for method input_type
+	28, // [28:28] is the sub-list for extension type_name
+	28, // [28:28] is the sub-list for extension extendee
+	0,  // [0:28] is the sub-list for field type_name
 }
 
 func init() { file_dcs_coalition_v0_coalition_proto_init() }
@@ -1973,7 +2093,7 @@ func file_dcs_coalition_v0_coalition_proto_init() {
 			}
 		}
 		file_dcs_coalition_v0_coalition_proto_msgTypes[2].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*AddStaticObjectRequest); i {
+			switch v := v.(*GetStaticObjectsRequest); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -1985,7 +2105,7 @@ func file_dcs_coalition_v0_coalition_proto_init() {
 			}
 		}
 		file_dcs_coalition_v0_coalition_proto_msgTypes[3].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*AddStaticObjectResponse); i {
+			switch v := v.(*GetStaticObjectsResponse); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -1997,7 +2117,7 @@ func file_dcs_coalition_v0_coalition_proto_init() {
 			}
 		}
 		file_dcs_coalition_v0_coalition_proto_msgTypes[4].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*AddLinkedStaticRequest); i {
+			switch v := v.(*AddStaticObjectRequest); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -2009,7 +2129,7 @@ func file_dcs_coalition_v0_coalition_proto_init() {
 			}
 		}
 		file_dcs_coalition_v0_coalition_proto_msgTypes[5].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*AddLinkedStaticResponse); i {
+			switch v := v.(*AddStaticObjectResponse); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -2021,7 +2141,7 @@ func file_dcs_coalition_v0_coalition_proto_init() {
 			}
 		}
 		file_dcs_coalition_v0_coalition_proto_msgTypes[6].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*GetGroupsRequest); i {
+			switch v := v.(*AddLinkedStaticRequest); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -2033,7 +2153,7 @@ func file_dcs_coalition_v0_coalition_proto_init() {
 			}
 		}
 		file_dcs_coalition_v0_coalition_proto_msgTypes[7].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*GetGroupsResponse); i {
+			switch v := v.(*AddLinkedStaticResponse); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -2045,7 +2165,7 @@ func file_dcs_coalition_v0_coalition_proto_init() {
 			}
 		}
 		file_dcs_coalition_v0_coalition_proto_msgTypes[8].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*GetBullseyeRequest); i {
+			switch v := v.(*GetGroupsRequest); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -2057,7 +2177,7 @@ func file_dcs_coalition_v0_coalition_proto_init() {
 			}
 		}
 		file_dcs_coalition_v0_coalition_proto_msgTypes[9].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*GetBullseyeResponse); i {
+			switch v := v.(*GetGroupsResponse); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -2069,7 +2189,7 @@ func file_dcs_coalition_v0_coalition_proto_init() {
 			}
 		}
 		file_dcs_coalition_v0_coalition_proto_msgTypes[10].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*GetPlayerUnitsRequest); i {
+			switch v := v.(*GetBullseyeRequest); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -2081,7 +2201,7 @@ func file_dcs_coalition_v0_coalition_proto_init() {
 			}
 		}
 		file_dcs_coalition_v0_coalition_proto_msgTypes[11].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*GetPlayerUnitsResponse); i {
+			switch v := v.(*GetBullseyeResponse); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -2093,7 +2213,7 @@ func file_dcs_coalition_v0_coalition_proto_init() {
 			}
 		}
 		file_dcs_coalition_v0_coalition_proto_msgTypes[12].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*AddGroupRequest_GroundGroupTemplate); i {
+			switch v := v.(*GetPlayerUnitsRequest); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -2105,7 +2225,7 @@ func file_dcs_coalition_v0_coalition_proto_init() {
 			}
 		}
 		file_dcs_coalition_v0_coalition_proto_msgTypes[13].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*AddGroupRequest_GroundUnitTemplate); i {
+			switch v := v.(*GetPlayerUnitsResponse); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -2117,7 +2237,7 @@ func file_dcs_coalition_v0_coalition_proto_init() {
 			}
 		}
 		file_dcs_coalition_v0_coalition_proto_msgTypes[14].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*AddGroupRequest_ShipGroupTemplate); i {
+			switch v := v.(*AddGroupRequest_GroundGroupTemplate); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -2129,7 +2249,7 @@ func file_dcs_coalition_v0_coalition_proto_init() {
 			}
 		}
 		file_dcs_coalition_v0_coalition_proto_msgTypes[15].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*AddGroupRequest_ShipUnitTemplate); i {
+			switch v := v.(*AddGroupRequest_GroundUnitTemplate); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -2141,7 +2261,7 @@ func file_dcs_coalition_v0_coalition_proto_init() {
 			}
 		}
 		file_dcs_coalition_v0_coalition_proto_msgTypes[16].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*AddGroupRequest_HelicopterGroupTemplate); i {
+			switch v := v.(*AddGroupRequest_ShipGroupTemplate); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -2153,7 +2273,7 @@ func file_dcs_coalition_v0_coalition_proto_init() {
 			}
 		}
 		file_dcs_coalition_v0_coalition_proto_msgTypes[17].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*AddGroupRequest_HelicopterUnitTemplate); i {
+			switch v := v.(*AddGroupRequest_ShipUnitTemplate); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -2165,7 +2285,7 @@ func file_dcs_coalition_v0_coalition_proto_init() {
 			}
 		}
 		file_dcs_coalition_v0_coalition_proto_msgTypes[18].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*AddGroupRequest_PlaneGroupTemplate); i {
+			switch v := v.(*AddGroupRequest_HelicopterGroupTemplate); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -2177,7 +2297,7 @@ func file_dcs_coalition_v0_coalition_proto_init() {
 			}
 		}
 		file_dcs_coalition_v0_coalition_proto_msgTypes[19].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*AddGroupRequest_PlaneUnitTemplate); i {
+			switch v := v.(*AddGroupRequest_HelicopterUnitTemplate); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -2189,7 +2309,7 @@ func file_dcs_coalition_v0_coalition_proto_init() {
 			}
 		}
 		file_dcs_coalition_v0_coalition_proto_msgTypes[20].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*AddGroupRequest_Point); i {
+			switch v := v.(*AddGroupRequest_PlaneGroupTemplate); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -2201,6 +2321,30 @@ func file_dcs_coalition_v0_coalition_proto_init() {
 			}
 		}
 		file_dcs_coalition_v0_coalition_proto_msgTypes[21].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*AddGroupRequest_PlaneUnitTemplate); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_dcs_coalition_v0_coalition_proto_msgTypes[22].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*AddGroupRequest_Point); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_dcs_coalition_v0_coalition_proto_msgTypes[23].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*AddGroupRequest_Task); i {
 			case 0:
 				return &v.state
@@ -2219,17 +2363,17 @@ func file_dcs_coalition_v0_coalition_proto_init() {
 		(*AddGroupRequest_HelicopterTemplate)(nil),
 		(*AddGroupRequest_PlaneTemplate)(nil),
 	}
-	file_dcs_coalition_v0_coalition_proto_msgTypes[2].OneofWrappers = []interface{}{}
 	file_dcs_coalition_v0_coalition_proto_msgTypes[4].OneofWrappers = []interface{}{}
-	file_dcs_coalition_v0_coalition_proto_msgTypes[12].OneofWrappers = []interface{}{}
-	file_dcs_coalition_v0_coalition_proto_msgTypes[13].OneofWrappers = []interface{}{}
+	file_dcs_coalition_v0_coalition_proto_msgTypes[6].OneofWrappers = []interface{}{}
+	file_dcs_coalition_v0_coalition_proto_msgTypes[14].OneofWrappers = []interface{}{}
+	file_dcs_coalition_v0_coalition_proto_msgTypes[15].OneofWrappers = []interface{}{}
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: file_dcs_coalition_v0_coalition_proto_rawDesc,
 			NumEnums:      3,
-			NumMessages:   22,
+			NumMessages:   24,
 			NumExtensions: 0,
 			NumServices:   1,
 		},

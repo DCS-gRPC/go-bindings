@@ -24,6 +24,8 @@ const _ = grpc.SupportPackageIsVersion7
 type CoalitionServiceClient interface {
 	// https://wiki.hoggitworld.com/view/DCS_func_addGroup
 	AddGroup(ctx context.Context, in *AddGroupRequest, opts ...grpc.CallOption) (*AddGroupResponse, error)
+	// https://wiki.hoggitworld.com/view/DCS_func_getStaticObjects
+	GetStaticObjects(ctx context.Context, in *GetStaticObjectsRequest, opts ...grpc.CallOption) (*GetStaticObjectsResponse, error)
 	// Focussed on statics (linked statics - see `AddLinkedStatic`)
 	// https://wiki.hoggitworld.com/view/DCS_func_addStaticObject
 	AddStaticObject(ctx context.Context, in *AddStaticObjectRequest, opts ...grpc.CallOption) (*AddStaticObjectResponse, error)
@@ -56,6 +58,15 @@ func NewCoalitionServiceClient(cc grpc.ClientConnInterface) CoalitionServiceClie
 func (c *coalitionServiceClient) AddGroup(ctx context.Context, in *AddGroupRequest, opts ...grpc.CallOption) (*AddGroupResponse, error) {
 	out := new(AddGroupResponse)
 	err := c.cc.Invoke(ctx, "/dcs.coalition.v0.CoalitionService/AddGroup", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *coalitionServiceClient) GetStaticObjects(ctx context.Context, in *GetStaticObjectsRequest, opts ...grpc.CallOption) (*GetStaticObjectsResponse, error) {
+	out := new(GetStaticObjectsResponse)
+	err := c.cc.Invoke(ctx, "/dcs.coalition.v0.CoalitionService/GetStaticObjects", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -113,6 +124,8 @@ func (c *coalitionServiceClient) GetPlayerUnits(ctx context.Context, in *GetPlay
 type CoalitionServiceServer interface {
 	// https://wiki.hoggitworld.com/view/DCS_func_addGroup
 	AddGroup(context.Context, *AddGroupRequest) (*AddGroupResponse, error)
+	// https://wiki.hoggitworld.com/view/DCS_func_getStaticObjects
+	GetStaticObjects(context.Context, *GetStaticObjectsRequest) (*GetStaticObjectsResponse, error)
 	// Focussed on statics (linked statics - see `AddLinkedStatic`)
 	// https://wiki.hoggitworld.com/view/DCS_func_addStaticObject
 	AddStaticObject(context.Context, *AddStaticObjectRequest) (*AddStaticObjectResponse, error)
@@ -141,6 +154,9 @@ type UnimplementedCoalitionServiceServer struct {
 
 func (UnimplementedCoalitionServiceServer) AddGroup(context.Context, *AddGroupRequest) (*AddGroupResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method AddGroup not implemented")
+}
+func (UnimplementedCoalitionServiceServer) GetStaticObjects(context.Context, *GetStaticObjectsRequest) (*GetStaticObjectsResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetStaticObjects not implemented")
 }
 func (UnimplementedCoalitionServiceServer) AddStaticObject(context.Context, *AddStaticObjectRequest) (*AddStaticObjectResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method AddStaticObject not implemented")
@@ -184,6 +200,24 @@ func _CoalitionService_AddGroup_Handler(srv interface{}, ctx context.Context, de
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(CoalitionServiceServer).AddGroup(ctx, req.(*AddGroupRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CoalitionService_GetStaticObjects_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetStaticObjectsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CoalitionServiceServer).GetStaticObjects(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/dcs.coalition.v0.CoalitionService/GetStaticObjects",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CoalitionServiceServer).GetStaticObjects(ctx, req.(*GetStaticObjectsRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -288,6 +322,10 @@ var CoalitionService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "AddGroup",
 			Handler:    _CoalitionService_AddGroup_Handler,
+		},
+		{
+			MethodName: "GetStaticObjects",
+			Handler:    _CoalitionService_GetStaticObjects_Handler,
 		},
 		{
 			MethodName: "AddStaticObject",

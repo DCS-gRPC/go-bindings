@@ -1,5 +1,7 @@
 # DCS-gRPC Go language bindings
 
+[![Go Reference](https://pkg.go.dev/badge/github.com/DCS-gRPC/go-bindings.svg)](https://pkg.go.dev/github.com/DCS-gRPC/go-bindings)
+
 ## Introduction
 
 This project provides auto-generated Go sources for use alongside the
